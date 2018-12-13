@@ -1,0 +1,90 @@
+extends layout
+
+block content
+  .row
+    .col-md-6
+      h1 Register Painting 
+      | Deadline: 
+      span#registration_deadline
+      .content-box-large
+        .panel-body
+          form.form-horizontal(role='form')
+            .form-group
+              label.control-label.col-md-2 Name
+              .col-sm-3
+                input.form-control#name(placeholder='Name', type='text', name='name')
+            .form-group
+              label.control-label.col-md-2 Email
+              .col-sm-3
+                input.form-control#email(placeholder='Email', type='text', name='email')
+            .form-group
+              label.control-label.col-md-2 Painting URL
+              .col-sm-3
+                input.form-control#url( placeholder='Painting URL', type='text', name='url')
+            .form-group
+              .col-sm-offset-4.col-sm-10
+                button.btn.btn-primary#register(type='submit') Register
+
+    .col-md-6
+      h1 Certified Artists (Vote Here)
+      | Deadline: 
+      span#voting_deadline
+      .content-box-large
+        .panel-body
+          .table-responsive
+            table.table
+              thead
+                tr
+                  th Name
+                  th Email
+                  th Painting URL
+                  th Address
+                  th votes
+              tbody
+              each data in certified_artists_list.artists
+                tr
+                  td #{data.name}
+                  td #{data.email} 
+                  td #{data.url}
+                  td #{data.address}
+                  td #{data.votes}
+                  td
+                    a.button.btn.btn-success.custom.vote
+                      | Vote
+
+      
+  .row
+    h1 Admin Use Only
+    .col-md-9
+      h1 Registered Artists
+      .content-box-large
+        .panel-body
+          .table-responsive
+            table.table
+              thead
+                tr
+                  th Name
+                  th Email
+                  th Painting URL
+                  th Address
+                  th Certified
+              tbody
+              each data in registered_artists_list.artists
+                tr
+                  td #{data.name}
+                  td #{data.email} 
+                  td #{data.url}
+                  td #{data.address}
+                  td #{data.certified}
+                  td
+                    if data.certified == true
+                      a.button.btn.btn-success.custom.certify(disabled="disabled")
+                        | certify
+                    else
+                      a.button.btn.btn-success.custom.certify
+                        | certify
+    .col-md-3         
+      h1 Get Winner
+      a.button.btn.btn-success.custom#winner
+        | Winner
+      h3#winningArtist

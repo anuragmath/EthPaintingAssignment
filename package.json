@@ -1,0 +1,22 @@
+{
+  "name": "Assignment",
+  "version": "1.0.0",
+  "description": "Painting Competition",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://anuragv8min@bitbucket.org/smartcreditio/poc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "#",
+  "dependencies": {
+    "truffle-hdwallet-provider": "0.0.3"
+  }
+}
