@@ -6,7 +6,7 @@ var logger = require('morgan');
 var Web3 = require('web3');
 var HDWalletProvider = require("truffle-hdwallet-provider");
 
-var mnemonic = "cute pudding benefit unfair inmate there level modify hospital age clump gift";
+var mnemonic = "replace mnemonic here";
 
 // web3 version 1.0.0 has changed the syntax for setting the current provider
 const provider = new HDWalletProvider(mnemonic, "http://localhost:8545");

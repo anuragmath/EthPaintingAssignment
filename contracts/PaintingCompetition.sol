@@ -55,7 +55,7 @@ contract PaintingCompetition {
 
     function certifyPainting(address _artist) public _onlyCertifier {
         require(block.timestamp <= registration_deadline, "Voting has started");
-        require(!artists[_artist].is_certified, "Artist Certified Already")
+        require(!artists[_artist].is_certified, "Artist Certified Already");
         artists[_artist].is_certified = true;
         certified_artists.push(_artist);
         emit ArtistCertified(_artist, artists[_artist].painting_url, artists[_artist].is_certified);

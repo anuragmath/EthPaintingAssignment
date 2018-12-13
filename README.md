@@ -69,3 +69,5 @@ $ npm start
 3. Certify And Winner Api can be called by anyone from the frontend as there is not authorisation there. But the transaction for certifying a painting always happens using the account which is owner by gallery owner in backend without using metamask.
 
 4. Winner API can be called once the voting period is over.
+
+5. Deployer of contract is the certifier of paintings.

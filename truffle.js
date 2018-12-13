@@ -1,5 +1,5 @@
 var HDWalletProvider = require("truffle-hdwallet-provider");
-var mnemonic = "cute pudding benefit unfair inmate there level modify hospital age clump gift";
+var mnemonic = "replace mnemonic here";
 module.exports = {
   // See <http://truffleframework.com/docs/advanced/configuration>
   // to customize your Truffle configuration!
