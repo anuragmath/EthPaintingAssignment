@@ -11,8 +11,33 @@ var mnemonic = "replace mnemonic here";
 // web3 version 1.0.0 has changed the syntax for setting the current provider
 const provider = new HDWalletProvider(mnemonic, "http://localhost:8545");
 
+
 var web3js = new Web3(provider);
 exports.web3js = web3js;
+
+const jwt = require('jsonwebtoken');
+const https = require('https');
+
+const apiKey = '181efaeb-9d95-488d-a448-2e2c6dfea0fd';
+const secretKey = 'ajCa3lsN6hiifG60vrWKAj3EzeDJWnobAECZBUUTXqU';
+const tokenCreationTime = Math.floor(Date.now() / 1000);
+const payload = { iss: apiKey, iat: tokenCreationTime };
+
+//jwt library uses HS256 as default.
+const token = jwt.sign(payload, secretKey);
+const options = {
+  host: 'api.ristaapps.com',
+  path: '/v1/items?branch=2&channel=Delivery',
+  headers: {
+    'x-api-key': apiKey,
+    'x-api-token': token,
+    'content-type': 'application/json'
+  }
+};
+
+https.get(options, function (res) {
+  console.log(res);
+ });
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
